@@ -80,7 +80,7 @@ cleanSpectronautChunk = function(input, output_path,
   input = dplyr::filter(input, FFrgLossType == "noloss")
   if (is.element("LabeledSequence", colnames(input))) {
     input = dplyr::mutate(input, IsLabeled = grepl("Lys8", LabeledSequence) | grepl("Arg10", LabeledSequence))
-    input = dplyr::mutate(input, IsotopeLabelType := if_else(IsLabeled, "H", "L"))
+    input = dplyr::mutate(input, IsotopeLabelType := dplyr::if_else(IsLabeled, "H", "L"))
   } else {
     input = dplyr::mutate(input, IsotopeLabelType = "L")
   }
