@@ -6,7 +6,7 @@ reduceBigSpectronaut = function(input_file, output_path,
                                 qvalue_cutoff = 0.01) {
   if (grepl("csv", input_file)) {
     delim = ","
-  } else if (grepl("tsv", input_file)) {
+  } else if (grepl("tsv|xls", input_file)) {
     delim = "\t"
   } else {
     delim = ";"
